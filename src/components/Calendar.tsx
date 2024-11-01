@@ -16,8 +16,12 @@ export function Calendar() {
 	const [selectedMonth, setSelectedMonth] = useState(new Date())
 
 	const calendarDays = useMemo(() => {
-		const firstWeekStart = startOfWeek(startOfMonth(selectedMonth))
-		const lastWeekEnd = endOfWeek(endOfMonth(selectedMonth))
+		const firstWeekStart = startOfWeek(startOfMonth(selectedMonth), {
+			weekStartsOn: 1,
+		})
+		const lastWeekEnd = endOfWeek(endOfMonth(selectedMonth), {
+			weekStartsOn: 1,
+		})
 		return eachDayOfInterval({ start: firstWeekStart, end: lastWeekEnd })
 	}, [selectedMonth])
 

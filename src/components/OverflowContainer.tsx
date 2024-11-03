@@ -26,7 +26,9 @@ export function OverflowContainer<T>({
 			const children =
 				containerElement.querySelectorAll<HTMLElement>('[data-item')
 			const overflowElement =
-				containerElement.parentElement?.querySelector<HTMLElement>('[data-overflow')
+				containerElement.parentElement?.querySelector<HTMLElement>(
+					'[data-overflow'
+				)
 
 			if (overflowElement != null) overflowElement.style.display = 'none'
 			children.forEach(child => child.style.removeProperty('display'))

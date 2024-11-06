@@ -41,16 +41,23 @@ export function Calendar() {
   return (
     <div className='calendar'>
       <div className='header'>
-        <button className='btn' onClick={() => setSelectedMonth(new Date())}>
+        <button
+          type='button'
+          className='btn'
+          onClick={() => setSelectedMonth(new Date())}>
           Today
         </button>
         <div>
           <button
+            type='button'
+            title='Previous Month'
             className='month-change-btn'
             onClick={() => setSelectedMonth(m => subMonths(m, 1))}>
             <IconChevronLeft />
           </button>
           <button
+            type='button'
+            title='Next Month'
             className='month-change-btn'
             onClick={() => setSelectedMonth(m => addMonths(m, 1))}>
             <IconChevronRight />
@@ -129,7 +136,9 @@ function CalendarDay({
           {formatDate(day, { day: 'numeric' })}
         </div>
         <button
+          type='button'
           className='add-event-btn'
+          title='Add Event'
           onClick={() => setIsNewEventModalOpen(true)}>
           +
         </button>
@@ -144,6 +153,8 @@ function CalendarDay({
           renderOverflow={amount => (
             <>
               <button
+                type='button'
+                title='See all events'
                 onClick={() => setIsViewMoreEventModalOpen(true)}
                 className='events-view-more-btn'>
                 +{amount}
@@ -181,7 +192,11 @@ function ViewMoreCalendarEventsModal({
     <Modal {...modalProps}>
       <div className='modal-title'>
         <small>{formatDate(events[0].date, { dateStyle: 'short' })}</small>
-        <button className='close-btn' onClick={modalProps.onClose}>
+        <button
+          type='button'
+          title='Close'
+          className='close-btn'
+          onClick={modalProps.onClose}>
           <IconX />
         </button>
       </div>
@@ -201,6 +216,8 @@ function CalendarEvent({ event }: { event: Event }) {
   return (
     <>
       <button
+        type='button'
+        title={`Event: ${event.name}`}
         onClick={() => setIsEditModalOpen(true)}
         className={cc('event', event.color, event.allDay && 'all-day-event')}>
         {event.allDay ? (
@@ -308,7 +325,11 @@ function EventFormModal({
       <div className='modal-title'>
         <div>{isNew ? 'Add' : 'Edit'} Event</div>
         <small>{formatDate(date || event.date, { dateStyle: 'short' })}</small>
-        <button className='close-btn' onClick={modalProps.onClose}>
+        <button
+          type='button'
+          title='Close'
+          className='close-btn'
+          onClick={modalProps.onClose}>
           <IconX />
         </button>
       </div>

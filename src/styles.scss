@@ -120,7 +120,12 @@ body {
   font-weight: bold;
 }
 
-.days {
+.days-of-week {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.days-of-month {
   flex-grow: 1;
   overflow-y: auto;
   display: grid;
@@ -312,7 +317,7 @@ body {
 .modal .modal-body {
   background-color: white;
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 1.2rem;
   z-index: 1;
   min-width: 350px;
   max-width: 95%;

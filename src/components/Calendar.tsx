@@ -70,13 +70,24 @@ export function Calendar() {
           })}
         </span>
       </div>
-      <div className='days'>
-        {calendarDays.map((day, index) => (
+      <div className='days-of-week'>
+        {calendarDays.map((day, index) => {
+          if (index < 7)
+            return (
+              <div key={index} className='day-header'>
+                <div className='week-name'>
+                  {formatDate(day, { weekday: 'short' })}
+                </div>
+              </div>
+            )
+        })}
+      </div>
+      <div className='days-of-month'>
+        {calendarDays.map(day => (
           <CalendarDay
             key={day.getTime()}
             day={day}
             events={events.filter(event => isSameDay(day, event.date))}
-            showWeekName={index < 7 ? true : false}
             selectedMonth={selectedMonth}
           />
         ))}
@@ -87,14 +98,13 @@ export function Calendar() {
 
 type CalendarDayProps = {
   day: Date
-  showWeekName: boolean
   selectedMonth: Date
   events: Event[]
 }
 
 function CalendarDay({
   day,
-  showWeekName,
+
   selectedMonth,
   events,
 }: CalendarDayProps) {
@@ -127,11 +137,6 @@ function CalendarDay({
         isBefore(endOfDay(day), new Date()) && 'old-month-day'
       )}>
       <div className='day-header'>
-        {showWeekName && (
-          <div className='week-name'>
-            {formatDate(day, { weekday: 'short' })}
-          </div>
-        )}
         <div className={cc('day-number', isToday(day) && 'today')}>
           {formatDate(day, { day: 'numeric' })}
         </div>

@@ -85,12 +85,8 @@ body {
   cursor: pointer;
   background: none;
   border: none;
-  font-size: 1.75rem;
-  width: 2rem;
-  padding: 0;
-  height: 2rem;
-  text-align: center;
-  vertical-align: middle;
+  padding: 0.25rem;
+  line-height: 0;
   border-radius: 100%;
   transition: background-color 250ms;
   color: #333;
@@ -104,12 +100,8 @@ body {
   cursor: pointer;
   background: none;
   border: none;
-  font-size: 1.25rem;
-  width: 2rem;
-  padding: 0;
-  height: 2rem;
-  text-align: center;
-  vertical-align: middle;
+  padding: 0.5rem;
+  line-height: 0;
   border-radius: 100%;
   transition: background-color 250ms;
   color: #333;
@@ -322,7 +314,7 @@ body {
   border-radius: 0.5rem;
   padding: 1rem;
   z-index: 1;
-  min-width: 300px;
+  min-width: 350px;
   max-width: 95%;
   animation: pop-in 250ms forwards;
   scale: 0;
@@ -425,7 +417,7 @@ body {
 }
 
 .color-radio + label::before {
-  content: "";
+  content: '';
   display: block;
   width: 1.75rem;
   height: 1.75rem;
@@ -442,14 +434,14 @@ body {
   outline: 1px solid black;
 }
 
-.color-radio[value="blue"] + label::before {
+.color-radio[value='blue'] + label::before {
   background-color: var(--blue-background);
 }
 
-.color-radio[value="red"] + label::before {
+.color-radio[value='red'] + label::before {
   background-color: var(--red-background);
 }
 
-.color-radio[value="green"] + label::before {
+.color-radio[value='green'] + label::before {
   background-color: var(--green-background);
 }

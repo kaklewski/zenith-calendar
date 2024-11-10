@@ -74,7 +74,7 @@ export function Calendar() {
         {calendarDays.map((day, index) => {
           if (index < 7)
             return (
-              <div key={index} className='day-header'>
+              <div key={index} className='day-of-week'>
                 <div className='week-name'>
                   {formatDate(day, { weekday: 'short' })}
                 </div>

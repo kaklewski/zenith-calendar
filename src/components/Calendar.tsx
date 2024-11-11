@@ -13,6 +13,7 @@ import { formatDate } from '../utils/formatDate'
 import { useEvents } from '../context/useEvents'
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react'
 import CalendarDay from './CalendarDay'
+import ThemeSwitch from './ThemeSwitch'
 
 export default function Calendar() {
   const [selectedMonth, setSelectedMonth] = useState(new Date())
@@ -60,6 +61,7 @@ export default function Calendar() {
             year: 'numeric',
           })}
         </span>
+        <ThemeSwitch />
       </div>
       <div className='days-of-week'>
         {calendarDays.map((day, index) => {

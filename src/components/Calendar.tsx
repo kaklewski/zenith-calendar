@@ -11,7 +11,11 @@ import {
 } from 'date-fns'
 import { formatDate } from '../utils/formatDate'
 import { useEvents } from '../context/useEvents'
-import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react'
+import {
+  IconChevronLeft,
+  IconChevronRight,
+  IconSettings,
+} from '@tabler/icons-react'
 import CalendarDay from './CalendarDay'
 import ThemeSwitch from './ThemeSwitch'
 
@@ -33,35 +37,40 @@ export default function Calendar() {
   return (
     <div className='calendar'>
       <div className='header'>
-        <button
-          type='button'
-          className='btn'
-          onClick={() => setSelectedMonth(new Date())}>
-          Today
-        </button>
-        <div>
+        <div className='navigation'>
           <button
             type='button'
-            title='Previous Month'
-            className='month-change-btn'
-            onClick={() => setSelectedMonth(m => subMonths(m, 1))}>
-            <IconChevronLeft />
+            className='btn'
+            onClick={() => setSelectedMonth(new Date())}>
+            Today
           </button>
-          <button
-            type='button'
-            title='Next Month'
-            className='month-change-btn'
-            onClick={() => setSelectedMonth(m => addMonths(m, 1))}>
-            <IconChevronRight />
-          </button>
+          <div>
+            <button
+              type='button'
+              title='Previous Month'
+              className='month-change-btn'
+              onClick={() => setSelectedMonth(m => subMonths(m, 1))}>
+              <IconChevronLeft />
+            </button>
+            <button
+              type='button'
+              title='Next Month'
+              className='month-change-btn'
+              onClick={() => setSelectedMonth(m => addMonths(m, 1))}>
+              <IconChevronRight />
+            </button>
+          </div>
+          <span className='month-title'>
+            {formatDate(selectedMonth, {
+              month: 'long',
+              year: 'numeric',
+            })}
+          </span>
         </div>
-        <span className='month-title'>
-          {formatDate(selectedMonth, {
-            month: 'long',
-            year: 'numeric',
-          })}
-        </span>
-        <ThemeSwitch />
+        <div>
+          <ThemeSwitch />
+          <IconSettings />
+        </div>
       </div>
       <div className='days-of-week'>
         {calendarDays.map((day, index) => {

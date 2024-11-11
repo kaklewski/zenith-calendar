@@ -54,15 +54,14 @@ body {
   padding: 1rem;
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   background-color: var(--bg-main);
 
-  & > * {
-    margin-right: 0.5rem;
-  }
-
-  & > :last-child {
-    margin-right: 0;
+  .navigation {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 }
 

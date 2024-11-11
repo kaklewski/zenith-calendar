@@ -2,7 +2,6 @@ import { IconX } from '@tabler/icons-react'
 import { formatDate } from '../utils/formatDate'
 import { Modal, ModalProps } from './Modal'
 import CalendarEvent from './CalendarEvent'
-
 import { Event } from '../context/Events'
 
 type ViewMoreCalendarEventsModalProps = {
@@ -17,7 +16,9 @@ export default function ViewMoreCalendarEventsModal({
   return (
     <Modal {...modalProps}>
       <div className='modal-title'>
-        <small>{formatDate(events[0].date, { dateStyle: 'short' })}</small>
+        <div>
+          All Events – {formatDate(events[0].date, { dateStyle: 'short' })}
+        </div>
         <button
           type='button'
           title='Close'

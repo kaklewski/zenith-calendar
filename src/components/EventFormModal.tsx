@@ -83,8 +83,10 @@ export default function EventFormModal({
   return (
     <Modal {...modalProps}>
       <div className='modal-title'>
-        <div>{isNew ? 'Add' : 'Edit'} Event</div>
-        <small>{formatDate(date || event.date, { dateStyle: 'short' })}</small>
+        <div>
+          {isNew ? 'Add' : 'Edit'} Event –{' '}
+          {formatDate(date || event.date, { dateStyle: 'short' })}
+        </div>
         <button
           type='button'
           title='Close'

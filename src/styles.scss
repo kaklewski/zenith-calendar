@@ -9,9 +9,9 @@
   --border-size: 1px;
   --day-padding: 0.25rem;
 
-  --blue-background: hsl(200, 80%, 50%);
-  --red-background: hsl(0, 75%, 60%);
-  --green-background: hsl(150, 80%, 30%);
+  --blue-background: light-dark(hsl(200, 80%, 50%), hsl(200, 80%, 45%));
+  --red-background: light-dark(hsl(0, 75%, 60%), hsl(0, 75%, 50%));
+  --green-background: light-dark(hsl(150, 80%, 30%), hsl(150, 80%, 28%));
   --border-color: light-dark(#dadce0, #0a0a0a);
   --text: light-dark(#333, white);
   --light-text: light-dark(#555, #777);
@@ -180,7 +180,6 @@ body {
 }
 
 .non-month-day {
-  // opacity: 0.75;
   background-color: var(--bg-secondary);
 }
 
@@ -253,7 +252,7 @@ body {
   padding: 0;
 
   & > * {
-    margin-right: 0.5rem;
+    margin-right: 0.35rem;
   }
 
   & > :last-child {
@@ -345,6 +344,7 @@ body {
     max-width: 95%;
     animation: pop-in 250ms forwards;
     scale: 0;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
   }
 
   &.closing .modal-body {
@@ -354,7 +354,7 @@ body {
 
 @keyframes fade-in {
   100% {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.6);
   }
 }
 
@@ -365,24 +365,12 @@ body {
 }
 
 .modal-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--text);
   margin-bottom: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  & > * {
-    margin-right: 0.25rem;
-  }
-
-  & > :last-child {
-    margin-right: 0;
-  }
-
-  & > small {
-    color: var(--light-text);
-  }
 }
 
 .form-group {
@@ -397,11 +385,11 @@ body {
 
   &.checkbox input {
     cursor: pointer;
-    margin-right: 0;
+    margin-inline: 0;
   }
 
   &.checkbox label {
-    padding-left: 0.5rem;
+    padding-left: 0.35rem;
     cursor: pointer;
   }
 
@@ -412,11 +400,15 @@ body {
   & label {
     font-weight: bold;
     font-size: 0.8rem;
-    color: var(--light-text);
+    color: var(--text);
   }
 
   & input {
-    padding: 0.25rem 0.5rem;
+    margin-top: 0.2rem;
+    padding: 0.35rem 0.5rem;
+    background-color: var(--bg-secondary);
+    border: var(--border-size) solid var(--border-color);
+    border-radius: 0.25rem;
   }
 }
 
@@ -457,11 +449,13 @@ body {
     height: 1.75rem;
     border-radius: 0.25rem;
     cursor: pointer;
-    opacity: 0.25;
+    opacity: 0.35;
+    margin-top: 0.2rem;
   }
 
   &:checked + label::before {
     opacity: 1;
+    outline: 1px solid var(--text);
   }
 
   &:focus + label::before {

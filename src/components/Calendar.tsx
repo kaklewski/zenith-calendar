@@ -17,10 +17,11 @@ import {
   IconSettings,
 } from '@tabler/icons-react'
 import CalendarDay from './CalendarDay'
-import ThemeSwitch from './ThemeSwitch'
+import SettingsModal from './SettingsModal'
 
 export default function Calendar() {
   const [selectedMonth, setSelectedMonth] = useState(new Date())
+  const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false)
 
   const calendarDays = useMemo(() => {
     const firstWeekStart = startOfWeek(startOfMonth(selectedMonth), {
@@ -48,14 +49,14 @@ export default function Calendar() {
             <button
               type='button'
               title='Previous Month'
-              className='month-change-btn'
+              className='icon-btn'
               onClick={() => setSelectedMonth(m => subMonths(m, 1))}>
               <IconChevronLeft />
             </button>
             <button
               type='button'
               title='Next Month'
-              className='month-change-btn'
+              className='icon-btn'
               onClick={() => setSelectedMonth(m => addMonths(m, 1))}>
               <IconChevronRight />
             </button>
@@ -68,8 +69,17 @@ export default function Calendar() {
           </span>
         </div>
         <div>
-          <ThemeSwitch />
-          <IconSettings />
+          <button
+            title='Settings'
+            type='button'
+            className='icon-btn'
+            onClick={() => setIsSettingsModalOpen(true)}>
+            <IconSettings />
+          </button>
+          <SettingsModal
+            isOpen={isSettingsModalOpen}
+            onClose={() => setIsSettingsModalOpen(false)}
+          />
         </div>
       </div>
       <div className='days-of-week'>

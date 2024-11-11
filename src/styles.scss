@@ -115,7 +115,7 @@ body {
   }
 }
 
-.month-change-btn {
+.icon-btn {
   cursor: pointer;
   background: none;
   border: none;
@@ -402,7 +402,8 @@ body {
     color: var(--text);
   }
 
-  & input {
+  & input,
+  & select {
     margin-top: 0.2rem;
     padding: 0.35rem 0.5rem;
     background-color: var(--bg-secondary);

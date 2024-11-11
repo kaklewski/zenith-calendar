@@ -26,7 +26,7 @@ type EventsProviderProps = {
 export const Context = createContext<EventsContext | null>(null)
 
 export function EventsProvider({ children }: EventsProviderProps) {
-  const [events, setEvents] = useLocalStorage('EVENTS', [])
+  const [events, setEvents] = useLocalStorage('calendar-events', [])
 
   function addEvent(eventDetails: UnionOmit<Event, 'id'>) {
     setEvents(e => [...e, { ...eventDetails, id: crypto.randomUUID() }])

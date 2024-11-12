@@ -21,7 +21,14 @@ export default function SettingsModal({ ...modalProps }: SettingsModalProps) {
         <label htmlFor='theme-switch'>Theme</label>
         <ThemeSwitch />
       </div>
-      
+      <div className='form-group'>
+        <label htmlFor='theme-switch'>First Day of The Week</label>
+        <select title='First day of the week'>
+          <option>Monday</option>
+          <option>Saturday</option>
+          <option>Sunday</option>
+        </select>
+      </div>
     </Modal>
   )
 }

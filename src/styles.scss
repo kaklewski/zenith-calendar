@@ -83,22 +83,22 @@ body {
   }
 
   &.btn-delete {
-    border-color: hsl(0, 75%, 60%);
-    background-color: hsl(0, 75%, 95%);
-    color: hsl(0, 75%, 10%);
+    border-color: light-dark(hsl(0, 75%, 60%), hsl(0, 75%, 50%));
+    background-color: light-dark(hsl(0, 75%, 95%), hsl(0, 75%, 25%));
+    color: light-dark(hsl(0, 75%, 10%), hsl(0, 75%, 90%));
 
     &:hover {
-      background-color: hsl(0, 75%, 90%);
+      background-color: light-dark(hsl(0, 75%, 90%), hsl(0, 75%, 35%));
     }
   }
 
   &.btn-success {
-    border-color: hsl(150, 80%, 30%);
-    background-color: hsl(150, 80%, 95%);
-    color: hsl(150, 80%, 10%);
+    border-color: light-dark(hsl(150, 80%, 30%), hsl(150, 80%, 25%));
+    background-color: light-dark(hsl(150, 80%, 95%), hsl(150, 80%, 20%));
+    color: light-dark(hsl(150, 80%, 10%), hsl(150, 80%, 85%));
 
     &:hover {
-      background-color: hsl(150, 80%, 90%);
+      background-color: light-dark(hsl(150, 80%, 90%), hsl(150, 80%, 30%));
     }
   }
 }

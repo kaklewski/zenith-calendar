@@ -13,8 +13,8 @@ export default function ThemeSwitch() {
 
   return (
     <select
-      id='theme-select'
-      title='Theme select'
+      id='theme-switch'
+      title='Theme switch'
       value={theme}
       onChange={e => setTheme(e.target.value)}>
       <option value='system'>System</option>

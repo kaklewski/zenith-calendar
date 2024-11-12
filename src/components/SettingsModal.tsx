@@ -27,7 +27,7 @@ export default function SettingsModal({
         <ThemeSwitch />
       </div>
       <div className='form-group'>
-        <label htmlFor='theme-switch'>First Day of The Week</label>
+        <label htmlFor='first-day-switch'>First Day of The Week</label>
         <FirstDaySwitch
           firstDayOfWeek={firstDayOfWeek}
           setFirstDayOfWeek={setFirstDayOfWeek}

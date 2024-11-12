@@ -9,8 +9,8 @@ export function FirstDaySwitch({
 }: FirstDaySwitchType) {
   return (
     <select
-      id='first-day-select'
-      title='First day of the week'
+      id='first-day-switch'
+      title='First day of the week switch'
       value={firstDayOfWeek}
       onChange={e => setFirstDayOfWeek(parseInt(e.target.value))}>
       <option value='1'>Monday</option>

@@ -22,7 +22,10 @@ import SettingsModal from './SettingsModal'
 export default function Calendar() {
   const [selectedMonth, setSelectedMonth] = useState(new Date())
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false)
-  const [firstDayOfWeek, setFirstDayOfWeek] = useState<any>(1) // Type 'any' is to make TypeScript shut up.
+  const localStorageFirstDay = localStorage.getItem('calendar-first-day')
+  const initialFirstDay =
+    localStorageFirstDay != null ? parseInt(localStorageFirstDay) : 1
+  const [firstDayOfWeek, setFirstDayOfWeek] = useState<any>(initialFirstDay) // Type 'any' is to make TypeScript shut up.
 
   const calendarDays = useMemo(() => {
     const firstWeekStart = startOfWeek(startOfMonth(selectedMonth), {

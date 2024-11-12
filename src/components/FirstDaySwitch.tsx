@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 export type FirstDaySwitchType = {
   firstDayOfWeek: number
   setFirstDayOfWeek: (value: number) => void
@@ -7,6 +9,10 @@ export function FirstDaySwitch({
   firstDayOfWeek,
   setFirstDayOfWeek,
 }: FirstDaySwitchType) {
+  useEffect(() => {
+    localStorage.setItem('calendar-first-day', firstDayOfWeek.toString())
+  }, [firstDayOfWeek])
+
   return (
     <select
       id='first-day-switch'

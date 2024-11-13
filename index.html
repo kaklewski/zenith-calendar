@@ -5,9 +5,43 @@
     <link rel="icon" type="image/svg+xml" href="/calendar.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zenith Calendar</title>
+
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .loader-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color-scheme: light dark;
+        background-color: light-dark(white, #202124);
+      }
+
+      .loader {
+        border: 3px solid hsl(200, 80%, 30%);
+        border-top-color: hsl(200, 80%, 60%);
+        border-radius: 50%;
+        width: 3em;
+        height: 3em;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body data-theme="system">
-    <div id="root"></div>
+    <div id="root">
+      <div class="loader-container">
+        <div class="loader"></div>
+      </div>
+    </div>
     <div id="modal-container"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

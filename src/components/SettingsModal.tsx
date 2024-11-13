@@ -1,11 +1,15 @@
 import { IconX } from '@tabler/icons-react'
 import { Modal, ModalProps } from './Modal'
-import ThemeSwitch from './ThemeSwitch'
+import ThemeSwitch, { ThemeSwitchType } from './ThemeSwitch'
 import { FirstDaySwitch, FirstDaySwitchType } from './FirstDaySwitch'
 
-type SettingsModalProps = Omit<ModalProps, 'children'> & FirstDaySwitchType
+type SettingsModalProps = Omit<ModalProps, 'children'> &
+  ThemeSwitchType &
+  FirstDaySwitchType
 
 export default function SettingsModal({
+  theme,
+  setTheme,
   firstDayOfWeek,
   setFirstDayOfWeek,
   ...modalProps
@@ -24,7 +28,7 @@ export default function SettingsModal({
       </div>
       <div className='form-group'>
         <label htmlFor='theme-switch'>Theme</label>
-        <ThemeSwitch />
+        <ThemeSwitch theme={theme} setTheme={setTheme} />
       </div>
       <div className='form-group'>
         <label htmlFor='first-day-switch'>First Day of The Week</label>

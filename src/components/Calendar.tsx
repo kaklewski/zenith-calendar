@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
   startOfWeek,
   startOfMonth,
@@ -26,6 +26,15 @@ export default function Calendar() {
   const initialFirstDay =
     localStorageFirstDay != null ? parseInt(localStorageFirstDay) : 1
   const [firstDayOfWeek, setFirstDayOfWeek] = useState<any>(initialFirstDay) // Type 'any' is to make TypeScript shut up.
+  const localStorageTheme = localStorage.getItem('calendar-theme')
+  const initialTheme = localStorageTheme != null ? localStorageTheme : 'system'
+  const [theme, setTheme] = useState(initialTheme)
+
+  useEffect(() => {
+    const themeAttribute = document.querySelector('body')
+    themeAttribute?.setAttribute('data-theme', theme)
+    localStorage.setItem('calendar-theme', theme)
+  }, [theme])
 
   const calendarDays = useMemo(() => {
     const firstWeekStart = startOfWeek(startOfMonth(selectedMonth), {
@@ -81,6 +90,8 @@ export default function Calendar() {
             <IconSettings />
           </button>
           <SettingsModal
+            theme={theme}
+            setTheme={setTheme}
             firstDayOfWeek={firstDayOfWeek}
             setFirstDayOfWeek={setFirstDayOfWeek}
             isOpen={isSettingsModalOpen}

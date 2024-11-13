@@ -1,16 +1,9 @@
-import { useEffect, useState } from 'react'
+export type ThemeSwitchType = {
+  theme: string
+  setTheme: (value: string) => void
+}
 
-export default function ThemeSwitch() {
-  const localStorageTheme = localStorage.getItem('calendar-theme')
-  const initialTheme = localStorageTheme != null ? localStorageTheme : 'system'
-  const [theme, setTheme] = useState(initialTheme)
-
-  useEffect(() => {
-    const themeAttribute = document.querySelector('body')
-    themeAttribute?.setAttribute('data-theme', theme)
-    localStorage.setItem('calendar-theme', theme)
-  }, [theme])
-
+export default function ThemeSwitch({ theme, setTheme }: ThemeSwitchType) {
   return (
     <select
       id='theme-switch'

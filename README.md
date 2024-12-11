@@ -31,7 +31,7 @@ https://zenith-calendar.netlify.app/
 
 1. Clone the project to your local machine:
 
-`git clone https://github.com/kaklewski/zenith-calendar`
+`git clone https://github.com/kaklewski/zenith-calendar.git`
 
 2. Navigate to the project directory:
 
